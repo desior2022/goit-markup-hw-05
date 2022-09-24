@@ -59,6 +59,7 @@ header .container {
 }
 .nav .link:hover {
   color: var(--accent-color);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav .link.current {
   color: var(--accent-color);
@@ -116,10 +117,12 @@ header .container {
 .auth .link:hover svg use,
 .auth .link:focus svg use {
 	fill: #2196F3;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth .link:hover,
 .auth .link:focus {
 	color: var(--accent-color);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Section Hero */
@@ -168,14 +171,45 @@ header .container {
 }
 .hero .button:hover {
   background-color: #188ce8;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop {
-	position: absolute;
+.hero .backdrop {
+	position: fixed;
 	top: 0;
 	left: 0;
-	width: 1600px;
-	height: 1024px;
+	width: 100%;
+	height: 100%;
 	background: rgba(0, 0, 0, 0.2);
+}
+.hero .backdrop.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.hero .modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: end;
+	padding: 8px;
+	width: 528px;
+	height: 581px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	background: var(--white-color);
+}
+.hero .close {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	background: var(--white-color);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Section Skill */
@@ -358,9 +392,11 @@ header .container {
 }
 .action .link:hover {
 	background-color: #2196F3;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .action .link:hover svg use {
 	fill: var(--white-color);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .action .item-icon:not(:last-child) {
 	margin-right: 10px;
@@ -409,12 +445,14 @@ padding: 94px 0;
 }
 .client .item:hover {
 	border: 1px solid #2196F3;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client .icon {
 	fill: #AFB1B8;
 }
 .client .item:hover svg use {
 	fill: #2196F3;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio.html */
@@ -463,6 +501,7 @@ padding: 94px 0;
 	border: navajowhite;
 }
 .filter .button:hover {
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--accent-color);
   color: var(--white-color);
 }
@@ -490,8 +529,33 @@ padding: 94px 0;
 }
 .card .item-card:hover {
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.card .action {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	margin: 0 auto;
+}
+.card .details {
+	position: absolute;
+	margin: 0 auto;
+	padding: 63px 24px;
+	width: 100%;
+	height: 100%;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.55;
+	letter-spacing: 0.03em;
+	color: var(--white-color);
+	background: rgba(33, 150, 243, 0.9);
 
+	transform: translateY(100%);
+}
+.card .item-card:hover .details {
+	transform: translateY(0);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .card .item-card:nth-child(3n) {
 	margin-right: 0;
 }
@@ -606,4 +670,5 @@ display: flex;
 }
 .join .item:hover {
 	background-color: #2196F3;
+	transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
